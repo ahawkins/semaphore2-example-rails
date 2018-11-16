@@ -30,8 +30,6 @@ blocks:
           - checkout
           - cache restore v1-bundle-gems-$(checksum Gemfile.lock)
           - cache restore v1-bundle-config-$(checksum Gemfile.lock)
-          - bundle config
-          - bundle check
           - sem-service start postgres
           - 'echo -e "test:\n  url: ${DATABASE_URL}" > config/database.yml'
           - bin/rails db:create
